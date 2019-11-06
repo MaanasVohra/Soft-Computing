@@ -1,0 +1,69 @@
+[System]
+Name='university'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=20
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='CGPA'
+Range=[0 10]
+NumMFs=4
+MF1='low':'trimf',[0 0 3.333]
+MF2='medium':'trimf',[0 3.333 6.667]
+MF3='high':'trimf',[3.333 6.667 10]
+MF4='very_high':'trimf',[6.667 10 10]
+
+[Input2]
+Name='extra-curricular'
+Range=[0 10]
+NumMFs=3
+MF1='bad':'trimf',[0 0 5]
+MF2='okayish':'trimf',[0 5 10]
+MF3='very_good':'trimf',[5 10 10]
+
+[Input3]
+Name='SAT'
+Range=[0 2400]
+NumMFs=5
+MF1='very_low':'trimf',[0 0 600]
+MF2='low':'trimf',[0 600 1200]
+MF3='medium':'trimf',[600 1200 1800]
+MF4='high':'trimf',[1200 1800 2400]
+MF5='very_high':'trimf',[1800 2400 2400]
+
+[Output1]
+Name='Prob_of_admission'
+Range=[0 1]
+NumMFs=3
+MF1='low':'trimf',[0 0 0.5]
+MF2='medium':'trimf',[0 0.5 1]
+MF3='high':'trimf',[0.5 1 1]
+
+[Rules]
+1 1 1, 1 (1) : 1
+1 1 2, 2 (1) : 1
+1 1 3, 3 (1) : 1
+1 1 4, 3 (1) : 1
+1 1 5, 3 (1) : 1
+2 2 1, 1 (1) : 1
+2 2 2, 2 (1) : 1
+2 2 3, 3 (1) : 1
+2 2 4, 3 (1) : 1
+2 2 5, 3 (1) : 1
+3 3 1, 1 (1) : 1
+3 3 2, 2 (1) : 1
+3 3 3, 3 (1) : 1
+3 3 4, 3 (1) : 1
+3 3 5, 3 (1) : 1
+4 3 1, 2 (1) : 1
+4 3 2, 2 (1) : 1
+4 3 3, 3 (1) : 1
+4 3 4, 3 (1) : 1
+4 3 5, 3 (1) : 1

@@ -1,0 +1,74 @@
+[System]
+Name='credit'
+Type='mamdani'
+Version=2.0
+NumInputs=4
+NumOutputs=1
+NumRules=15
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Income'
+Range=[0 100000]
+NumMFs=4
+MF1='low':'trapmf',[0 0 10000 25000]
+MF2='medium':'trapmf',[15000 35000 35000 55000]
+MF3='high':'trapmf',[40000 60000 60000 80000]
+MF4='very_high':'trapmf',[60000 80000 100000 100000]
+
+[Input2]
+Name='Interest'
+Range=[0 10]
+NumMFs=3
+MF1='low':'trapmf',[0 0 2 5]
+MF2='medium':'trapmf',[2 4 6 8]
+MF3='high':'trapmf',[6 8.5 10 10]
+
+[Input3]
+Name='Applicant'
+Range=[0 10]
+NumMFs=3
+MF1='Low':'trapmf',[0 0 2 4]
+MF2='Medium':'trapmf',[2 5 5 8]
+MF3='high':'trapmf',[6 8 10 10]
+
+[Input4]
+Name='House'
+Range=[0 10]
+NumMFs=5
+MF1='Very_Low':'trimf',[0 0 3]
+MF2='Low':'trimf',[0 3 6]
+MF3='Medium':'trimf',[2 5 8]
+MF4='High':'trimf',[4 7 10]
+MF5='Very_High':'trimf',[7 10 10]
+
+[Output1]
+Name='Credit'
+Range=[0 100000]
+NumMFs=5
+MF1='very_low':'trimf',[0 0 25000]
+MF2='low':'trimf',[0 25000 50000]
+MF3='medium':'trimf',[25000 50000 75000]
+MF4='high':'trimf',[50000 75000 100000]
+MF5='very_high':'trimf',[75000 100000 100000]
+
+[Rules]
+1 2 0 0, 1 (1) : 1
+1 3 0 0, 1 (1) : 1
+2 3 0 0, 2 (1) : 1
+0 0 1 0, 1 (1) : 1
+0 0 0 1, 1 (1) : 1
+0 0 2 1, 2 (1) : 1
+0 0 2 2, 2 (1) : 1
+0 0 2 3, 3 (1) : 1
+0 0 2 4, 4 (1) : 1
+0 0 2 5, 4 (1) : 1
+0 0 3 1, 2 (1) : 1
+0 0 3 2, 3 (1) : 1
+0 0 3 3, 4 (1) : 1
+0 0 3 4, 4 (1) : 1
+0 0 3 5, 5 (1) : 1
