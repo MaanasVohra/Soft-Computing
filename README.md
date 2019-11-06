@@ -2,6 +2,13 @@
 
 This contains my submissions for the Soft Computing Elective Course at IIITA.
 
+# Dependencies
+
+1. Python3
+2. Numpy
+3. Matplotlib
+4. Matlab(Only for last assignment)
+
 # Assignments
 
 The assignment folders contain the description of the assignment statement along with the jupyter notebooks (and dataset).
